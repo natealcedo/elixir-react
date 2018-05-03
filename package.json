@@ -6,6 +6,7 @@
     "watch": "brunch watch --stdin"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "phoenix": "file:deps/phoenix",
@@ -42,6 +43,7 @@
       "sourceType": "module"
     },
     "rules": {
+      "jsx-a11y/href-no-hash": "off",
       "no-unused-vars": [
         "error",
         {
