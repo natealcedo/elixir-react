@@ -7,6 +7,12 @@ defmodule PhoenixReactCuratedList.BlogsView do
     }
   end
 
+  def render("show.json", %{blog: blog}) do
+    %{
+      blog: blogs_json(blog)
+    }
+  end
+
   def blogs_json(blog) do
     %{
        title: blog.title,

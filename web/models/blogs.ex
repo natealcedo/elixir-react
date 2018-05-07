@@ -9,4 +9,9 @@ defmodule PhoenixReactCuratedList.Blogs do
     field :author, :string
     timestamps()
   end
+
+  def changeset(struct, params \\ %{}) do
+    struct
+    |> cast(params, [:title, :subtitle, :image, :link, :author])
+  end
 end

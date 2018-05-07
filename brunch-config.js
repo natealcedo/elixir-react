@@ -40,10 +40,7 @@ exports.config = {
   // Phoenix paths configuration
   paths: {
     // Dependencies and current project directories to watch
-    watched: [
-      "web/static",
-      "test/static"
-    ],
+    watched: ["web/static", "test/static"],
 
     // Where to compile files to
     public: "priv/static"
@@ -54,7 +51,8 @@ exports.config = {
     babel: {
       // Do not use ES6 compiler in vendor code
       ignore: [/web\/static\/vendor/],
-      presets: ["es2015", "react"]
+      presets: ["es2015", "react"],
+      plugins: ["transform-class-properties", "transform-object-rest-spread"]
     }
   },
 

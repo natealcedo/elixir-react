@@ -13,17 +13,21 @@ defmodule PhoenixReactCuratedList.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", PhoenixReactCuratedList do
-    pipe_through :browser # Use the default browser stack
+  # Other scopes may use custom stacks.
+  scope "/api", PhoenixReactCuratedList do
+    pipe_through :api
 
-    get "/", PageController, :index
     get "/blogs", BlogsController, :index
     post "/blogs", BlogsController, :create
     get "/blogs/:id", BlogsController, :show
+    delete "/blogs/:id", BlogsController, :delete
+    put "/blogs/:id", BlogsController, :update
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", PhoenixReactCuratedList do
-  #   pipe_through :api
-  # end
+  scope "/*path", PhoenixReactCuratedList do
+    pipe_through :browser # Use the default browser stack
+
+    get "/", PageController, :index
+  end
+
 end
